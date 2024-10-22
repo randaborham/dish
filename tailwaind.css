@@ -1,0 +1,23 @@
+.nav-item{
+    margin-bottom: 0.25rem; /* mb-1 */
+    display: flex; /* flex */
+    align-items: center; /* items-center */
+    justify-content: space-between; /* justify-between */
+    overflow: hidden; /* overflow-hidden */
+    white-space: nowrap; /* whitespace-nowrap */
+    border-radius: 0.375rem; /* rounded-md */
+    padding: 0.625rem; /* p-2.5 */
+    color: #A098AE; /* text-[#A098AE] */
+    width: 100%; /* w-full */
+    transition: background-color 0.3s ease, color 0.3s ease; /* To add smooth transition on hover */
+}
+
+.nav-item:hover {
+    background: linear-gradient(to right, #F23F39, #6d2c29); /* hover:bg-gradient-to-r from-[#F23F39] to-[#BD0600] */
+    color: white; /* hover:text-white */
+}
+
+.dark .nav-item:hover {
+    background-color: #181f32; /* dark:hover:bg-[#181f32] */
+    color: #E4E7EB; /* dark:hover:text-white-dark */
+}
