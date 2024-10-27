@@ -25,7 +25,49 @@
                     <div
                       class="flex justify-between items-center gap-4 ltr:ml-auto rtl:mr-auto"
                     >
-                      <div class="dropdown">
+                      <div class="text-center">
+                        <v-menu v-model="menu" :close-on-content-click="false">
+                          <template v-slot:activator="{ props }">
+                            <v-btn color="#BD0600" class="px-8" v-bind="props"
+                              >Status
+                            </v-btn>
+                          </template>
+
+                          <v-card min-width="200">
+                            <v-divider></v-divider>
+
+                            <v-list>
+                              <v-list-item>
+                                <v-switch
+                                  v-model="message"
+                                  color="purple"
+                                  label="Enable messages"
+                                  hide-details
+                                ></v-switch>
+                              </v-list-item>
+
+                              <v-list-item>
+                                <v-switch
+                                  v-model="hints"
+                                  color="purple"
+                                  label="Enable hints"
+                                  hide-details
+                                ></v-switch>
+                              </v-list-item>
+                            </v-list>
+
+                            <v-card-actions>
+                              <v-spacer></v-spacer>
+
+                              <v-btn variant="text" @click="menu = false"> Cancel </v-btn>
+                              <v-btn color="#BD0600" variant="text" @click="menu = false">
+                                Save
+                              </v-btn>
+                            </v-card-actions>
+                          </v-card>
+                        </v-menu>
+                      </div>
+                      <!-- <div class="dropdown">
                         <button
                           type="button"
                           class="!flex items-center border font-semibold border-[#BD0600] dark:border-[#253b5c] rounded-md px-4 py-2 text-sm dark:bg-[#1b2e4b] dark:text-white-dark"
@@ -48,7 +90,7 @@
                             ></path>
                           </svg>
                         </button>
-                      </div>
+                      </div> -->
                       <div class="dropdown">
                         <button
                           type="button"
@@ -80,7 +122,7 @@
                           @click="isActive = true"
                           class="btn bg-gradient-to-r px-5 py-2 from-[#F23F39] flex flex-end items-center justify-end to-[#BD0600] rounded-xl text-md shadow-none text-white"
                         >
-                          <span class="ms-[-10px]">
+                          <span class="ms-[-20px]">
                             <svg
                               width="50"
                               height="16"
@@ -118,7 +160,7 @@
                     >
                       <div class="mantine-datatable-scroll-area">
                         <div style="min-width: 100%; display: table">
-                          <table
+                          <v-table
                             class="w-full text-sm text-left rtl:text-right text-gray-500"
                           >
                             <thead
@@ -222,7 +264,7 @@
                                 </td>
                               </tr>
                             </tbody>
-                          </table>
+                          </v-table>
                         </div>
                       </div>
                     </div>
@@ -257,11 +299,16 @@
 <script>
 import Add from "@/components/Add.vue";
 export default {
+  name: "DropdownWithStatus",
   components: {
     Add,
   },
   data() {
     return {
+      fav: true,
+      menu: false,
+      message: false,
+      hints: true,
       isActive: false, // للتحكم في عرض نافذة الحوار
       items: [
         { name: "Product 1", price: 10, count: 1, total: 10 },

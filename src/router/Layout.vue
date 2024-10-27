@@ -5,7 +5,7 @@
       <v-navigation-drawer
         location="left"
         permanent
-        class="bg-light custom-side-shadow"
+        class="bg-light custom-side-shadow px-0"
         v-model="drawer"
         :rail="rail"
         @click="rail = false"
@@ -13,7 +13,7 @@
       >
         <!-- الشعار -->
         <div class="logo" v-if="!rail">
-          <img :src="require('@/assets/Artboard 2 2.png')" alt="My Image" />
+          <img :src="require('@/assets/Artboard 2 2.png')" class="px-8" alt="My Image" />
         </div>
 
         <!-- زر لإغلاق وفتح Sidebar -->
@@ -32,23 +32,15 @@
         <!-- قائمة الروابط -->
         <v-list density="compact" nav>
           <router-link to="/" class="nav-item">
-            <v-list-item prepend-icon="mdi-home-city">
+            <v-list-item prepend-icon="mdi-home-city" class="px-0">
               <v-list-item-title v-if="!rail" class="font-weight-bold"
                 >Home</v-list-item-title
               >
             </v-list-item>
           </router-link>
-          <!-- 
-          <router-link to="/account" class="nav-item">
-            <v-list-item prepend-icon="mdi-account">
-              <v-list-item-title v-if="!rail" class="font-weight-bold"
-                >My Account</v-list-item-title
-              >
-            </v-list-item>
-          </router-link> -->
 
           <router-link to="/user" class="nav-item">
-            <v-list-item prepend-icon="mdi-account-group-outline">
+            <v-list-item prepend-icon="mdi-account-group-outline" class="px-0">
               <v-list-item-title v-if="!rail" class="font-weight-bold"
                 >Users</v-list-item-title
               >
@@ -56,7 +48,7 @@
           </router-link>
 
           <router-link to="/about" class="nav-item">
-            <v-list-item prepend-icon="mdi-cog">
+            <v-list-item prepend-icon="mdi-cog" class="px-0">
               <v-list-item-title v-if="!rail" class="font-weight-bold"
                 >Settings</v-list-item-title
               >
